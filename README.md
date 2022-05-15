@@ -47,6 +47,26 @@ Dari syarat nomor 1, saya sudah membuat sebanyak 5 halaman, yaitu homepage scree
 ## Menerapkan MVVM Architecture
 Salah satu syarat lagi yaitu untuk menerapkan MVVM Architecture untuk penataan file. Dimana MVVM ini merupakan penataan file yang memisahkan logic dengan tampilan, sebagaimana kepanjangan dari MVVM sendiri adalah Model-View ViewModel.
 
-Dapat dilihat penataan folder dibagi menjadi beberapa bagian pada foto berikut.
-
+Dapat dilihat penataan folder dibagi menjadi beberapa bagian pada foto berikut.  
 ![](./screenshots/MVVM.png)
+
+## Mengakses data menggunakan RESTful API atau SQLite
+Lalu syarat selanjutnya ini merupakan akses terhadap RESTful API atau SQLite untuk mengakses data yang akan ditampilkan, pada aplikasi ini, saya menggunakan dua API, yaitu API dari IMDB dan juga dari Realtime Databse pada Firebase, sehingga data untuk mendapatkan detail diambil dari dari IMDB sedangkan untuk data list movies, series dan juga animes diambil dari firebase.
+
+Dapat dilihat pada foto berikut yang merupakan isi dari file dart berupa class IMDB API yang digunakan untuk mengambil data detail movie atau series, aktor dan juga untuk medapatkan id youtube untuk menonton trailer dari movie/series yang sedang dilihat melalui detail.  
+![](./screenshots/ImdbAPI.png)
+
+Lalu pada foto berikut ini merupakan isi dari file dart berupa class FirebaseAPI yang digunakan untuk mengambil data semuar movies, dan series yang akan ditampilkan, untuk mengakses user data dan juga untuk menaruh user data dan manaruh list data berdasarkan id akun tertentu.  
+!![](./screenshots/FirebaseAPI1.png)  
+!![](./screenshots/FirebaseAPI2.png)
+
+## Menggunakan Transition
+Untuk Transition yang digunakan kurang lebih ada 2 transition, yaitu scale transition dan slide transition.
+
+Untuk hasil dari transisi tersebut dapat dilahat pada 2 gif berikut.
+
+- Slide Transition
+<img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/SlideTransition.gif" width="250">
+
+- Scale Transition
+<img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/ScaleTransition.gif" width="250">
