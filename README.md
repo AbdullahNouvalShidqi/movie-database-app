@@ -57,8 +57,8 @@ Dapat dilihat pada foto berikut yang merupakan isi dari file dart berupa class I
 ![](./screenshots/ImdbAPI.png)
 
 Lalu pada foto berikut ini merupakan isi dari file dart berupa class FirebaseAPI yang digunakan untuk mengambil data semuar movies, dan series yang akan ditampilkan, untuk mengakses user data dan juga untuk menaruh user data dan manaruh list data berdasarkan id akun tertentu.  
-!![](./screenshots/FirebaseAPI1.png)  
-!![](./screenshots/FirebaseAPI2.png)
+![](./screenshots/FirebaseAPI1.png)  
+![](./screenshots/FirebaseAPI2.png)
 
 ## Menggunakan Transition
 Untuk Transition yang digunakan kurang lebih ada 2 transition, yaitu scale transition dan slide transition.
