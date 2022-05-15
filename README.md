@@ -4,7 +4,7 @@ A mini project that are made using IMDB api and sdk form firebase, so user could
 
 ## Task
 
-Tugas ini meruapakan tugas kita sebagai siswa, untuk membuat sebuah aplikasi berdasarkan syarat-syarat tertentu yang berhubungan dengan dari apa yang sudah kita pelajari. Untuk syarat-syarat tersebut diantara lain.
+Tugas ini merupakan tugas kita sebagai siswa, untuk membuat sebuah aplikasi berdasarkan syarat-syarat tertentu yang berhubungan dengan dari apa yang sudah kita pelajari. Untuk syarat-syarat tersebut diantara lain.
 
 - Minimum memiliki 5 halaman.
 - Menerapkan MVVM architecture.
@@ -43,3 +43,10 @@ Dari syarat nomor 1, saya sudah membuat sebanyak 5 halaman, yaitu homepage scree
 
 - Sign In Screen
 <img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/SignInScreen.jpg" width="250">
+
+## Menerapkan MVVM Architecture
+Salah satu syarat lagi yaitu untuk menerapkan MVVM Architecture untuk penataan file. Dimana MVVM ini merupakan penataan file yang memisahkan logic dengan tampilan, sebagaimana kepanjangan dari MVVM sendiri adalah Model-View ViewModel.
+
+Dapat dilihat penataan folder dibagi menjadi beberapa bagian pada foto berikut.
+
+![](./screenshots/MVVM.png)
