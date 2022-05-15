@@ -30,7 +30,7 @@ Dari syarat nomor 1, saya sudah membuat sebanyak 5 halaman, yaitu homepage scree
 <img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/DetailScreen.jpg" width="250">
 
 - Search Screen.
-<img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/SerachScreen.jpg" width="250">
+<img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/SearchScreen.jpg" width="250">
 
 - Account Screen (Not Signed In)
 <img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/AccountScreen(NotSignedIn).jpg" width="250">
