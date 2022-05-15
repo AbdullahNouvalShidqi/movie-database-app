@@ -5,13 +5,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project/model/item_model.dart';
-import 'package:mini_project/view/account/account_view_model.dart';
-import 'package:mini_project/view/add_to_list/add_to_list_screen.dart';
-import 'package:mini_project/view/detail/detail_screen.dart';
-import 'package:mini_project/view/home/home_view_model.dart';
-import 'package:mini_project/view/all_list/all_list_screen.dart';
-import 'package:mini_project/view/sign_up_sign_in/sign_in_screen.dart';
-import 'package:mini_project/view/sign_up_sign_in/sign_up_screen.dart';
+import 'package:mini_project/screen/account/account_view_model.dart';
+import 'package:mini_project/screen/add_to_list/add_to_list_screen.dart';
+import 'package:mini_project/screen/detail/detail_screen.dart';
+import 'package:mini_project/screen/home/home_view_model.dart';
+import 'package:mini_project/screen/all_list/all_list_screen.dart';
+import 'package:mini_project/screen/sign_up_sign_in/sign_in_screen.dart';
+import 'package:mini_project/screen/sign_up_sign_in/sign_up_screen.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {

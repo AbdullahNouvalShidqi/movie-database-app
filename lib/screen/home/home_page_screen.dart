@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mini_project/view/account/account_screen.dart';
-import 'package:mini_project/view/home/home_screen.dart';
-import 'package:mini_project/view/search/search_screen.dart';
+import 'package:mini_project/screen/account/account_screen.dart';
+import 'package:mini_project/screen/home/home_screen.dart';
+import 'package:mini_project/screen/search/search_screen.dart';
 
 class HomePage extends StatefulWidget {
   static String routeName = '/homePage';

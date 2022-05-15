@@ -1,19 +1,19 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mini_project/view/account/account_view_model.dart';
-import 'package:mini_project/view/detail/detail_screen.dart';
-import 'package:mini_project/view/detail/detail_view_model.dart';
-import 'package:mini_project/view/detail/person_detail_screen.dart';
-import 'package:mini_project/view/home/home_page_screen.dart';
-import 'package:mini_project/view/home/home_screen.dart';
-import 'package:mini_project/view/home/home_view_model.dart';
-import 'package:mini_project/view/all_list/all_list_screen.dart';
-import 'package:mini_project/view/search/search_screen.dart';
-import 'package:mini_project/view/search/search_view_model.dart';
-import 'package:mini_project/view/sign_up_sign_in/sign_in_screen.dart';
-import 'package:mini_project/view/sign_up_sign_in/sign_up_screen.dart';
-import 'package:mini_project/view/sign_up_sign_in/sign_up_sign_in_view_model.dart';
-import 'package:mini_project/view/splash_screen/splash_screen.dart';
+import 'package:mini_project/screen/account/account_view_model.dart';
+import 'package:mini_project/screen/detail/detail_screen.dart';
+import 'package:mini_project/screen/detail/detail_view_model.dart';
+import 'package:mini_project/screen/detail/person_detail_screen.dart';
+import 'package:mini_project/screen/home/home_page_screen.dart';
+import 'package:mini_project/screen/home/home_screen.dart';
+import 'package:mini_project/screen/home/home_view_model.dart';
+import 'package:mini_project/screen/all_list/all_list_screen.dart';
+import 'package:mini_project/screen/search/search_screen.dart';
+import 'package:mini_project/screen/search/search_view_model.dart';
+import 'package:mini_project/screen/sign_up_sign_in/sign_in_screen.dart';
+import 'package:mini_project/screen/sign_up_sign_in/sign_up_screen.dart';
+import 'package:mini_project/screen/sign_up_sign_in/sign_up_sign_in_view_model.dart';
+import 'package:mini_project/screen/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async{

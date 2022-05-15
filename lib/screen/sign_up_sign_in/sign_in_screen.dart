@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mini_project/view/account/account_view_model.dart';
-import 'package:mini_project/view/sign_up_sign_in/sign_up_screen.dart';
-import 'package:mini_project/view/sign_up_sign_in/sign_up_sign_in_view_model.dart';
+import 'package:mini_project/screen/account/account_view_model.dart';
+import 'package:mini_project/screen/sign_up_sign_in/sign_up_screen.dart';
+import 'package:mini_project/screen/sign_up_sign_in/sign_up_sign_in_view_model.dart';
 import 'package:provider/provider.dart';
 
 class SignInScreen extends StatefulWidget {

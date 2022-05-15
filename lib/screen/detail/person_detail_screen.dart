@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project/model/actor_model.dart';
-import 'package:mini_project/view/detail/detail_screen.dart';
-import 'package:mini_project/view/detail/detail_view_model.dart';
+import 'package:mini_project/screen/detail/detail_screen.dart';
+import 'package:mini_project/screen/detail/detail_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 
