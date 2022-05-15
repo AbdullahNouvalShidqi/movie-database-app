@@ -70,3 +70,15 @@ Untuk hasil dari transisi tersebut dapat dilahat pada 2 gif berikut.
 
 - Scale Transition
 <img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/ScaleTransition.gif" width="250">
+
+## Menggukan Form
+Untuk penggunaan form, form digunakan untuk 3 hal pada aplikasi ini, di antara lain untuk sign in, sign up, dan memasukkan nilai myRating dan myReview saat ingin menambah kedalam list yang akan tersimpan pada akun. Dapat dilihat pada 3 foto berikut untuk form yang digunakan.
+
+- Sign Up
+<img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/SignUpScreen.jpg" width="250">
+
+- Sign In
+<img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/SignInScreen.jpg" width="250">
+
+- Add To List Form (Akan muncul jika status menjadi selain plan to watch).
+<img src="https://github.com/AbdullahNouvalShidqi/movie-database-app/blob/main/screenshots/AddToListForm.jpg" width="250">
