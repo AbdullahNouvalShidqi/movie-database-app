@@ -38,7 +38,7 @@ class HomeViewModel with ChangeNotifier{
 
   late SharedPreferences _sharedPreferences;
 
-  bool _darkMode = true;
+  bool _darkMode = false;
   bool get darkMode => _darkMode;
 
   void changeDarkMode(){
