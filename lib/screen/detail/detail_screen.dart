@@ -28,7 +28,7 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) async {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       final item = ModalRoute.of(context)!.settings.arguments as Item;
       dataDetail = await Provider.of<DetailViewModel>(context, listen: false).getDataDetail(item.id);
     });

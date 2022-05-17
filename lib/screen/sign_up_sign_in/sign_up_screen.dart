@@ -37,7 +37,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) async {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       await Provider.of<SignUpSignInViewModel>(context, listen: false).getAllUserData();
     });
   }

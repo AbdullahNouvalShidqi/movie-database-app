@@ -17,7 +17,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void getData() async {
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) async {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       final viewModel = Provider.of<HomeViewModel>(context, listen: false);
       final accountViewModel = Provider.of<AccountViewModel>(context, listen: false);
       final signUpSignInViewModel = Provider.of<SignUpSignInViewModel>(context, listen: false);
