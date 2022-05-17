@@ -37,6 +37,18 @@ class DetailViewModel with ChangeNotifier {
     }
   }
 
+  Future<DataDetail?> refreshDataDetail(String id) async {
+    
+    try{
+      final d = await ImdbAPI().getDataDetail(id: id);
+      changeState(DetailViewState.none);
+      return d;
+    }catch(e){
+      changeState(DetailViewState.error);
+      return null;
+    }
+  }
+
   Future<ActorModel> getActorData(String id) async {
     final _actorData = await ImdbAPI().getActorDetail(id: id);
 

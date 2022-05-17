@@ -53,9 +53,18 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: TabBarView(
           children: [
-            moviesBody(homeViewModel: homeViewModel, accountViewModel: accountViewModel),
-            seriesBody(homeViewModel: homeViewModel, accountViewModel: accountViewModel),
-            animesBody(homeViewModel: homeViewModel, accountViewModel: accountViewModel)
+            RefreshIndicator(
+              onRefresh: homeViewModel.getMoviesData,
+              child: moviesBody(homeViewModel: homeViewModel, accountViewModel: accountViewModel)
+            ),
+            RefreshIndicator(
+              onRefresh: homeViewModel.getSeriesData,
+              child: seriesBody(homeViewModel: homeViewModel, accountViewModel: accountViewModel)
+            ),
+            RefreshIndicator(
+              onRefresh: homeViewModel.getAnimesData,
+              child: animesBody(homeViewModel: homeViewModel, accountViewModel: accountViewModel)
+            )
           ]
         )
         
@@ -71,7 +80,13 @@ class _HomeScreenState extends State<HomeScreen> {
       return const Center(child: CircularProgressIndicator(),);
     }
     else if(isError){
-      return const Center(child: Text('Cannot get data, check your internet connection'),);
+      return SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: const Center(child: Text('Cannot get data, check your internet connection'),)
+        )
+      );
     }else{
       return SingleChildScrollView(
         child: Center(
@@ -96,7 +111,13 @@ class _HomeScreenState extends State<HomeScreen> {
       return const Center(child: CircularProgressIndicator(),);
     }
     else if(isError){
-      return const Center(child: Text('Cannot get data, check your internet connection'),);
+      return SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: const Center(child: Text('Cannot get data, check your internet connection'),)
+        )
+      );
     }else{
       return SingleChildScrollView(
         child: Center(
@@ -121,7 +142,13 @@ class _HomeScreenState extends State<HomeScreen> {
       return const Center(child: CircularProgressIndicator(),);
     }
     else if(isError){
-      return const Center(child: Text('Cannot get data, check your internet connection'),);
+      return SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: const Center(child: Text('Cannot get data, check your internet connection'),)
+        )
+      );
     }else{
       return SingleChildScrollView(
         child: Center(

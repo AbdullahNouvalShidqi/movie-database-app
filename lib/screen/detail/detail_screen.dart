@@ -23,24 +23,31 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  DataDetail? dataDetail;
+  DataDetail? _dataDetail;
+  String? _id;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      final item = ModalRoute.of(context)!.settings.arguments as Item;
-      dataDetail = await Provider.of<DetailViewModel>(context, listen: false).getDataDetail(item.id);
+      final _item = ModalRoute.of(context)!.settings.arguments as Item;
+      _id = _item.id;
+      _dataDetail = await Provider.of<DetailViewModel>(context, listen: false).getDataDetail(_item.id);
     });
   }
+
+  Future<void> _onRefresh() async {
+    _dataDetail = await Provider.of<DetailViewModel>(context, listen: false).refreshDataDetail(_id!);
+  }
+  
   @override
   Widget build(BuildContext context) {
     final detailViewModel = Provider.of<DetailViewModel>(context);
     final accountViewModel = Provider.of<AccountViewModel>(context);
 
-    final thisItem = ModalRoute.of(context)!.settings.arguments as Item;
-    final detail = dataDetail;
-    final item = detailViewModel.checkItem(thisItem: thisItem, inMyListItems: accountViewModel.all);
+    final _thisItem = ModalRoute.of(context)!.settings.arguments as Item;
+    final _detail = _dataDetail;
+    final _item = detailViewModel.checkItem(thisItem: _thisItem, inMyListItems: accountViewModel.all);
 
     return WillPopScope(
       onWillPop: () async {
@@ -54,7 +61,10 @@ class _DetailScreenState extends State<DetailScreen> {
         appBar: AppBar(
           title: const Text('Details'),
         ),
-        body: body(item: item, detail: detail, detailViewModel: detailViewModel)
+        body: RefreshIndicator(
+          onRefresh: _onRefresh,
+          child: body(item: _item, detail: _detail, detailViewModel: detailViewModel)
+        )
       ),
     );
   }
@@ -68,7 +78,13 @@ class _DetailScreenState extends State<DetailScreen> {
     }
 
     if(isError){
-      return Center(child: Text('Error cannot get data, check your internet connection and comeback later', textAlign: TextAlign.center, style: GoogleFonts.signikaNegative(),),);
+      return SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Center(child: Text('Error cannot get data, check your internet connection and comeback later', textAlign: TextAlign.center, style: GoogleFonts.signikaNegative(),),)
+        )
+      );
     }
 
     if(detail == null){

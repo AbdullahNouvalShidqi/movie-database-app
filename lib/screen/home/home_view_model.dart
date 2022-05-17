@@ -60,6 +60,42 @@ class HomeViewModel with ChangeNotifier{
     }
   }
 
+  Future<void> getMoviesData() async {
+
+    try{
+      _popularMovies = await FirebaseAPI().getApiData(jsonName: 'popularMovies');
+      _topMovies = await FirebaseAPI().getApiData(jsonName: 'topMovies');
+      changeState(HomeViewState.none);
+    } catch(e){
+      changeState(HomeViewState.error);
+    }
+    
+  }
+
+  Future<void> getSeriesData() async {
+
+    try{
+      _popularSeries = await FirebaseAPI().getApiData(jsonName: 'popularSeries');
+      _topSeries = await FirebaseAPI().getApiData(jsonName: 'topSeries');
+      changeState(HomeViewState.none);
+    } catch(e){
+      changeState(HomeViewState.error);
+    }
+    
+  }
+
+  Future<void> getAnimesData() async {
+    
+    try{
+      _popularAnimes = await FirebaseAPI().getApiData(jsonName: 'popularAnimes');
+      _topAnimes = await FirebaseAPI().getApiData(jsonName: 'topAnimes');
+      changeState(HomeViewState.none);
+    } catch(e){
+      changeState(HomeViewState.error);
+    }
+    
+  }
+
   Future<void> getAllData() async {
     changeState(HomeViewState.loading);
 
