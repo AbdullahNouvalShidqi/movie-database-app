@@ -15,8 +15,8 @@ class AddToListScreen extends StatefulWidget {
 
 class _AddToListScreenState extends State<AddToListScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _ratingCrtl = TextEditingController();
   final _reviewCtrl = TextEditingController();
+  double? _rating;
   String? status;
 
   @override
@@ -27,14 +27,13 @@ class _AddToListScreenState extends State<AddToListScreen> {
       _reviewCtrl.text = widget.item.myReview!;
     }
     if(widget.item.myRating != null){
-      _ratingCrtl.text = widget.item.myRating!;
+      _rating = double.parse(widget.item.myRating!) ;
     }
   }
 
   @override
   void dispose() {
     super.dispose();
-    _ratingCrtl.dispose();
     _reviewCtrl.dispose();
   }
 
@@ -56,6 +55,7 @@ class _AddToListScreenState extends State<AddToListScreen> {
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 setYourStatus(),
                 yourRatingReviewSet(),
@@ -92,56 +92,47 @@ class _AddToListScreenState extends State<AddToListScreen> {
 
   Widget yourRatingReviewSet(){
     if(status == 'Watching'){
-      return TextFormField(            
-        controller: _ratingCrtl,
-        keyboardType: TextInputType.number,
-        decoration: const InputDecoration(
-          icon: Icon(Icons.star),
-          label: Text('Your Rating'),
-          hintText : 'Input your rating value in range of 1 - 10'
-        ),
-        validator: (newValue){
-          if(newValue == ' '){
-            return 'Input your value';
-          }
-          else if(newValue!.isEmpty){
-            return null;
-          }
-          else if(double.tryParse(newValue) == null || double.tryParse(newValue)! > 10){
-            return 'Value should number from range of 1.0 - 10.0';
-          }
-          return null;
-        },
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text('Your Rating (${_rating ?? "0-10"})', style: GoogleFonts.signikaNegative(fontSize: 20),),
+          ),
+          Slider(
+            value: _rating == null ? 0 : _rating!,
+            max: 10,
+            divisions: 20,
+            label: _rating == null ? '0' : _rating!.toString(),
+            activeColor: Colors.deepPurple,
+            onChanged: (newValue){
+              setState(() {
+                _rating = newValue;
+              });
+            }
+          ),
+        ],
       );
     }
     if(status == 'Finished' || status == 'Dropped'){
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [          
-          TextFormField(            
-            controller: _ratingCrtl,
-            keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              icon: Icon(Icons.star),
-              label: Text('Your Rating'),
-              hintText : 'Input your rating value in range of 1 - 10'
-            ),
-            validator: (newValue){
-              if(newValue == ' '){
-                return 'Input your value';
-              }
-              else if(newValue!.isEmpty){
-                return null;
-              }
-              else if(double.tryParse(newValue) == null || double.tryParse(newValue)! > 10){
-                return 'Value should number from range of 1.0 - 10.0';
-              }
-              return null;
-            },
-          ),
+        children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-            child: Text('*You could input the value in decimals', style: GoogleFonts.signikaNegative(fontWeight: FontWeight.w100)),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text('Your Rating (${_rating ?? "0-10"})', style: GoogleFonts.signikaNegative(fontSize: 20),),
+          ),
+          Slider(
+            value: _rating == null ? 0 : _rating!,
+            max: 10,
+            divisions: 20,
+            label: _rating == null ? '0' : _rating!.toString(),
+            activeColor: Colors.deepPurple,
+            onChanged: (newValue){
+              setState(() {
+                _rating = newValue;
+              });
+            }
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -157,7 +148,7 @@ class _AddToListScreenState extends State<AddToListScreen> {
               ),
               label: Center(child: Text('What you think about the series/movies you have watched', textAlign: TextAlign.center, style: GoogleFonts.signikaNegative(),)),
             ),
-            maxLines: 5,
+            maxLines: 4,
             validator: (newValue){
               if(newValue == ' '){
                 return 'Please add a proper data';
@@ -176,33 +167,35 @@ class _AddToListScreenState extends State<AddToListScreen> {
   }
 
   Widget buttonsToSave({required AccountViewModel accountViewModel, required HomeViewModel homeViewModel}){
-      return Padding(
-        padding: const EdgeInsets.only(top: 8),
-        child: ElevatedButton(
-          onPressed: status == null || (widget.item.status == status && widget.item.status == 'Plan to watch') ? null : 
-          () {
-            final item = widget.item;
-            late SnackBar snackBar;
-            
-            if(item.status != null){
-              item.status = status;
-              item.myReview = _reviewCtrl.text.isEmpty ? null : _reviewCtrl.text;
-              item.myRating = _ratingCrtl.text.isEmpty ? null : _ratingCrtl.text;
-              accountViewModel.updateList(item);
-              snackBar = SnackBar(content: Text('${item.title} successfully updated in your list', style: GoogleFonts.signikaNegative()));
-            }
-            else{
-              item.status = status;
-              item.myReview = _reviewCtrl.text.isEmpty ? null : _reviewCtrl.text;
-              item.myRating = _ratingCrtl.text.isEmpty ? null : _ratingCrtl.text;
-              accountViewModel.addToList(widget.item);
-              snackBar = SnackBar(content: Text('${item.title} successfully added to your list', style: GoogleFonts.signikaNegative()));
-            }
-
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);            
-            Navigator.of(context).pop();
-          },
-          child: const Text('Save')
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: ElevatedButton(
+            onPressed: status == null || (widget.item.status == status && widget.item.status == 'Plan to watch') ? null : 
+            () {
+              final item = widget.item;
+              late SnackBar snackBar;
+              
+              if(item.status != null){
+                item.status = status;
+                item.myReview = _reviewCtrl.text.isEmpty ? null : _reviewCtrl.text;
+                item.myRating = _rating?.toString();
+                accountViewModel.updateList(item);
+                snackBar = SnackBar(content: Text('${item.title} successfully updated in your list', style: GoogleFonts.signikaNegative()));
+              }
+              else{
+                item.status = status;
+                item.myReview = _reviewCtrl.text.isEmpty ? null : _reviewCtrl.text;
+                item.myRating = _rating?.toString();
+                accountViewModel.addToList(item);
+                snackBar = SnackBar(content: Text('${item.title} successfully added to your list', style: GoogleFonts.signikaNegative()));
+              }
+      
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);            
+              Navigator.of(context).pop();
+            },
+            child: const Text('Save')
+          ),
         ),
       );  
   }
