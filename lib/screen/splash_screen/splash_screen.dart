@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   'assets/mainIcon.png',
                   width: 300,
                 ),
-                Text('The Movie Database', style: GoogleFonts.oleoScriptSwashCaps(fontSize: 25, fontWeight: FontWeight.w700))
+                Text('The Movie Database', style: GoogleFonts.oleoScriptSwashCaps(fontSize: 25, fontWeight: FontWeight.w700, color: Colors.white))
               ],
             )
           ],
