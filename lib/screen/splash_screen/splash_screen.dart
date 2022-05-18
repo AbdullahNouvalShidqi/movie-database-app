@@ -18,7 +18,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void getData() async {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      final viewModel = Provider.of<HomeViewModel>(context, listen: false);
+      final homeViewModel = Provider.of<HomeViewModel>(context, listen: false);
       final accountViewModel = Provider.of<AccountViewModel>(context, listen: false);
       final signUpSignInViewModel = Provider.of<SignUpSignInViewModel>(context, listen: false);
       final user = FirebaseAuth.instance.currentUser;
@@ -27,8 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
         accountViewModel.setSignIn();
       }
       await signUpSignInViewModel.getAllUserData();
-      await viewModel.getAllData();
-      await viewModel.getPreferences();
+      await homeViewModel.getAllData();
+      await homeViewModel.getPreferences();
       Navigator.pushReplacementNamed(context, HomePage.routeName);
     });
   }
