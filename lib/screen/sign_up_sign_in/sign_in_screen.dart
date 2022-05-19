@@ -58,12 +58,12 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Widget body({required SignUpSignInViewModel signInViewModel, required AccountViewModel accountViewModel}){
-    final isLoading = signInViewModel.state == SignUpSignInState.loading || accountViewModel.state == AccountViewState.laoding;
+    // final isLoading = signInViewModel.state == SignUpSignInState.loading || accountViewModel.state == AccountViewState.laoding;
     final isError = accountViewModel.state == AccountViewState.error;
 
-    if(isLoading){
-      return const Center(child: CircularProgressIndicator(),);
-    }
+    // if(isLoading){
+    //   return const Center(child: CircularProgressIndicator(),);
+    // }
     if(isError){
       return const Center(child: Text('Error : Check your internet connection'),);
     }
@@ -165,8 +165,9 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Widget signInButton({required SignUpSignInViewModel signInViewModel, required AccountViewModel accountViewModel}){
+    final isLoading = signInViewModel.state == SignUpSignInState.loading || accountViewModel.state == AccountViewState.laoding;
     return ElevatedButton(
-      onPressed: () async {
+      onPressed: isLoading ? null : () async {
         if(!_formKey.currentState!.validate())return;
         final allUserData = signInViewModel.allUserData;
         
@@ -194,10 +195,10 @@ class _SignInScreenState extends State<SignInScreen> {
         }
         
       },
-      child: Text('Sign in', style: GoogleFonts.signikaNegative(fontSize: 18, fontWeight: FontWeight.bold),),
+      child: isLoading ? const CircularProgressIndicator(color: Colors.white, strokeWidth: 2,) : Text('Sign in', style: GoogleFonts.signikaNegative(fontSize: 18, fontWeight: FontWeight.bold),),
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 15)),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+        fixedSize: MaterialStateProperty.all(const Size(100, 45))
       ),
     );
   }

@@ -52,11 +52,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
   
   Widget body({required SignUpSignInViewModel signUpViewModel, required AccountViewModel accountViewModel}){
-    final isLoading = signUpViewModel.state == SignUpSignInState.loading || accountViewModel.state == AccountViewState.laoding;
+    // final isLoading = signUpViewModel.state == SignUpSignInState.loading || accountViewModel.state == AccountViewState.laoding;
 
-    if(isLoading){
-      return const Center(child: CircularProgressIndicator(),);
-    }
+    // if(isLoading){
+    //   return const Center(child: CircularProgressIndicator(),);
+    // }
 
     return SingleChildScrollView(
       child: Form(
@@ -213,8 +213,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Widget signUp({required SignUpSignInViewModel signUpViewModel, required AccountViewModel accountViewModel}){
+    final isLoading = signUpViewModel.state == SignUpSignInState.loading || accountViewModel.state == AccountViewState.laoding;
     return ElevatedButton(
-      onPressed: () async {
+      onPressed: isLoading ? null : () async {
         if(!_formKey.currentState!.validate())return;
 
         await signUpViewModel.signUp(email: _emailCtrl.text, password: _passwordCtrl.text, username: _userNameCtrl.text);
@@ -232,10 +233,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         } 
         
       },
-      child: Text('Sign up', style: GoogleFonts.signikaNegative(fontSize: 18, fontWeight: FontWeight.bold),),
+      child: isLoading ? const CircularProgressIndicator(color: Colors.white, strokeWidth: 2) : Text('Sign up', style: GoogleFonts.signikaNegative(fontSize: 18, fontWeight: FontWeight.bold),),
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 20, vertical: 15)),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+        fixedSize: MaterialStateProperty.all(const Size(100,45))
       ),
     ); 
   }
