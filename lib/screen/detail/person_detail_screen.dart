@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project/model/actor_model.dart';
 import 'package:mini_project/screen/detail/detail_screen.dart';
@@ -83,7 +84,15 @@ class PersonDetailScreen extends StatelessWidget {
   Widget imageView({required ActorModel detail}){
     return CachedNetworkImage(
       imageUrl: detail.image,
-      placeholder: (context, url) => const Center(child: CircularProgressIndicator(),),
+      placeholder: (context, url) => Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.deepPurple
+          ),
+          child: const SpinKitSpinningLines(color: Colors.white)
+        ),
       errorWidget: (context, url, error) => Container(
         height: double.infinity,
         width: double.infinity,
@@ -221,7 +230,15 @@ class PersonDetailScreen extends StatelessWidget {
           children: [
             CachedNetworkImage(
               imageUrl: detail.knownFor[i].image,
-              placeholder: (context, url) => const Center(child: CircularProgressIndicator(),),
+              placeholder: (context, url) => Container(
+                height: double.infinity,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.deepPurple
+                ),
+                child: const SpinKitSpinningLines(color: Colors.white)
+              ),
               errorWidget: (context, url, error) => Container(
                 height: double.infinity,
                 width: double.infinity,

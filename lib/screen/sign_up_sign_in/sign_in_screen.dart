@@ -198,7 +198,8 @@ class _SignInScreenState extends State<SignInScreen> {
       child: isLoading ? const CircularProgressIndicator(color: Colors.white, strokeWidth: 2,) : Text('Sign in', style: GoogleFonts.signikaNegative(fontSize: 18, fontWeight: FontWeight.bold),),
       style: ButtonStyle(
         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
-        fixedSize: MaterialStateProperty.all(const Size(100, 45))
+        fixedSize: MaterialStateProperty.all(const Size(100, 45)),
+        backgroundColor: MaterialStateProperty.all(Colors.deepPurple)
       ),
     );
   }

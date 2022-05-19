@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project/model/data_detail_model.dart';
 import 'package:mini_project/model/item_model.dart';
@@ -121,7 +122,15 @@ class _DetailScreenState extends State<DetailScreen> {
       height: 250,
       child: CachedNetworkImage(
         imageUrl: detail.image,
-        placeholder: (context, url) => const Center(child: CircularProgressIndicator(),),
+        placeholder: (context, url) => Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.deepPurple
+          ),
+          child: const SpinKitSpinningLines(color: Colors.white)
+        ),
         errorWidget: (context, url, error) => Container(
           height: double.infinity,
           width: double.infinity,
@@ -286,7 +295,15 @@ class _DetailScreenState extends State<DetailScreen> {
           children: [
             CachedNetworkImage(
               imageUrl: detail.actorList[i].image,
-              placeholder: (context, url) => const Center(child: CircularProgressIndicator(),),
+              placeholder: (context, url) => Container(
+                height: double.infinity,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.deepPurple
+                ),
+                child: const SpinKitSpinningLines(color: Colors.white)
+              ),
               errorWidget: (context, url, error) => Container(
                 height: double.infinity,
                 width: double.infinity,
@@ -368,7 +385,15 @@ class _DetailScreenState extends State<DetailScreen> {
                 children: [
                   CachedNetworkImage(
                     imageUrl: detail.similars[i].image,
-                    placeholder: (context, url) => const Center(child: CircularProgressIndicator(),),
+                    placeholder: (context, url) => Container(
+                      height: double.infinity,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.deepPurple
+                      ),
+                      child: const SpinKitSpinningLines(color: Colors.white)
+                    ),
                     errorWidget: (context, url, error) => Container(
                       height: double.infinity,
                       width: double.infinity,
