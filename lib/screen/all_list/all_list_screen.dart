@@ -75,8 +75,6 @@ class _AllListScreenState extends State<AllListScreen> {
     return SizedBox(
       width: 150,
       child: CachedNetworkImage(
-        memCacheHeight: 800,
-        memCacheWidth: 600,
         imageUrl: item.image,
         placeholder: (context, url) => Container(
           height: double.infinity,

@@ -196,9 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget carouselImage({required Item item}){
     return SizedBox(
       width: 300,
-      child: CachedNetworkImage(           
-        memCacheHeight: 800,
-        memCacheWidth: 600,     
+      child: CachedNetworkImage(  
         imageUrl: item.image,
         placeholder: (context, url) => Container(
           height: double.infinity,
@@ -304,8 +302,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget cardImage({required Item item}){
     return CachedNetworkImage(
-      memCacheHeight: 800,
-      memCacheWidth: 600,
       imageUrl: item.image,
       placeholder: (context, url) => Container(
           height: double.infinity,
