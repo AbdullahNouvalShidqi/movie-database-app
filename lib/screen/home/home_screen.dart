@@ -187,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
         initialPage: random.nextInt(items.length),
         autoPlayInterval: const Duration(seconds: 6),
         autoPlay: true,
-        height: 430,
+        height: 450,
         enlargeCenterPage: true,  
       )
     );
