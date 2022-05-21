@@ -243,14 +243,17 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 
   Widget plot({required DataDetail detail}){
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Plot', style: GoogleFonts.signikaNegative(fontSize: 20),),
-        Text(detail.plot, textAlign: TextAlign.justify, style: GoogleFonts.signikaNegative()),
-        const SizedBox(height: 10,),
-      ],
-    );
+    if(detail.plot != null){
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Plot', style: GoogleFonts.signikaNegative(fontSize: 20),),
+          Text(detail.plot, textAlign: TextAlign.justify, style: GoogleFonts.signikaNegative()),
+          const SizedBox(height: 10,),
+        ],
+      );
+    }
+    return const SizedBox();
   }
 
   Widget actorsListView({required DataDetail detail}) {
@@ -269,7 +272,7 @@ class _DetailScreenState extends State<DetailScreen> {
             child: ListView.builder(
               itemCount: detail.actorList.length,
               itemBuilder: (context, i){
-                return GestureDetector(
+                return InkWell(
                   onTap: (){
                     Navigator.pushNamed(context, PersonDetailScreen.routeName, arguments: detail.actorList[i].id);
                   },
