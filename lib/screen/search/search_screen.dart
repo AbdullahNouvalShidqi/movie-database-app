@@ -293,7 +293,7 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Row(
         children: [
           const Icon(Icons.star, color: Colors.yellow,),
-          Text(item.imDbRating.isNotEmpty? item.imDbRating : '--')
+          Text(item.imDbRating.isNotEmpty && item.imDbRating != null ? item.imDbRating : '--')
         ],
       ),
     );

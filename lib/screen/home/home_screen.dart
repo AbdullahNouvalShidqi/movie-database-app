@@ -357,7 +357,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const Icon(Icons.star, color: Colors.yellow, size: 13,),
             const SizedBox(width: 5,),
-            item.imDbRating.toString().isNotEmpty ? Text(item.imDbRating, style: GoogleFonts.signikaNegative(color: Colors.white),):
+            item.imDbRating.toString().isNotEmpty && item.imDbRating != null ? Text(item.imDbRating, style: GoogleFonts.signikaNegative(color: Colors.white),):
             Text('-.-', style: GoogleFonts.signikaNegative(color: Colors.white))
           ],
         ),
